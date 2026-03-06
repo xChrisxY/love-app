@@ -1,0 +1,22 @@
+<div>
+  <h2>Notas</h2>
+
+  @if (loading()) {
+    <p>Cargando...</p>
+  }
+
+  @if (error()) {
+    <p>{{ error() }}</p>
+  }
+
+  @if (!loading() && notes().length === 0) {
+    <p>No hay notas aún.</p>
+  }
+
+  @for (note of notes(); track note.id) {
+    <div>
+      <p>{{ note.content }}</p>
+      <small>{{ note.created_at }}</small>
+    </div>
+  }
+</div>
