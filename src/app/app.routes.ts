@@ -4,12 +4,15 @@ import { SongsList } from './features/songs/songs-list/songs-list';
 import { MemoriesList } from './features/memories/memories-list/memories-list';
 import { ListsList } from './features/lists/lists-list/lists-list';
 import { Home } from './shared/components/home/home';
+import { LoginComponent } from './features/auth/login/login';
+import { authGuard } from './core/guards/auth-guard';
 
 export const routes: Routes = [
-  { path: '', component: Home},
-  {path: 'notes', component: NotesList},
-  {path: 'songs', component: SongsList},
-  {path: 'memories', component: MemoriesList},
-  {path: 'lists', component: ListsList},
+  {path: 'login', component: LoginComponent},
+  {path: '', component: Home, canActivate: [authGuard]},
+  {path: 'notes', component: NotesList, canActivate: [authGuard]},
+  {path: 'songs', component: SongsList, canActivate: [authGuard]},
+  {path: 'memories', component: MemoriesList, canActivate: [authGuard]},
+  {path: 'lists', component: ListsList, canActivate: [authGuard]},
   {path: '**', redirectTo: ''},
 ];

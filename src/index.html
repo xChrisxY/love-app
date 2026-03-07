@@ -6,11 +6,7 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-      <meta http-equiv="Content-Security-Policy" 
-      content="default-src 'self'; 
-               img-src 'self' http://192.168.1.71:4200 https: data:; 
-               script-src 'self' 'unsafe-inline' 'unsafe-eval'; 
-               style-src 'self' 'unsafe-inline';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' http://192.168.1.71:8080">
 </head>
 <body>
   <app-root></app-root>
