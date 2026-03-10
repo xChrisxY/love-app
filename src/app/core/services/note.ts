@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { Inject, inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-export interface Note{
+export interface Note {
   id: string;
   content: string;
   created_at: string;
@@ -21,10 +21,14 @@ export interface ApiResponse<T> {
 export class NoteService {
 
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:8080/api/notes';
+  private apiUrl = "http://192.168.1.71:8080/api/notes";
 
   getAll(): Observable<ApiResponse<Note[]>> {
     return this.http.get<ApiResponse<Note[]>>(this.apiUrl);
+  }
+
+  create(content: string): Observable<ApiResponse<Note>> {
+    return this.http.post<ApiResponse<Note>>(this.apiUrl, { content });
   }
 
 }

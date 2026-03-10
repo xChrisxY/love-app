@@ -1,1 +1,23 @@
-<p>songs-list works!</p>
+<div>
+  <h2>Canciones</h2>
+
+  @if (loading()) {
+    <p>Cargando...</p>
+  }
+
+  @if (error()) {
+    <p>{{ error() }}</p>
+  }
+
+  @if (!loading() && songs().length === 0) {
+    <p>No hay notas aún.</p>
+  }
+
+  @for (song of songs(); track song.id) {
+    <div>
+      <p>{{ song.message }}</p>
+      <a [href]="song.url">Enlace</a>
+      <small>{{ song.created_at }}</small>
+    </div>
+  }
+</div>

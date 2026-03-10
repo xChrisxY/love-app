@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { Note, NoteService } from '../../../core/service/note';
+import { Note, NoteService } from '../../../core/services/note';
 
 @Component({
   selector: 'app-notes-list',

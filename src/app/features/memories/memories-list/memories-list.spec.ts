@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MemoriesList } from './memories-list';
+import { MemoriesListC} from './memories-list';
 
 describe('MemoriesList', () => {
   let component: MemoriesList;

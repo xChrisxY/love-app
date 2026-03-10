@@ -1,1 +1,24 @@
-<p>memories-list works!</p>
+<div>
+  <h2>Memories</h2>
+
+  @if (loading()) {
+    <p>Cargando...</p>
+  }
+
+  @if (error()) {
+    <p>{{ error() }}</p>
+  }
+
+  @if (!loading() && memories().length === 0) {
+    <p>No hay notas aún.</p>
+  }
+
+  @for (memory of memories(); track memory.id) {
+    <div>
+      <p>{{ memory.title }}</p>
+      <a [href]="memory.image_url"></a>
+      <p>{{ memory.description }}</p>
+      <small>{{ memory.created_at }}</small>
+    </div>
+  }
+</div>

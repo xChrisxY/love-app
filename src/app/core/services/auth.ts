@@ -28,9 +28,11 @@ export class AuthService {
   }
 
   login(credencials: LoginCredentials){
-
+    console.log(credencials);
     return this.http.post<LoginResponse>(this.apiUrl, credencials).pipe(
-      tap(response => {
+      tap(
+        response => {
+        console.log(response);
         localStorage.setItem('token', response.token);
         this.isLoggedIn.set(true);
       })
