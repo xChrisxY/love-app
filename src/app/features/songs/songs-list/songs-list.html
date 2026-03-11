@@ -1,6 +1,8 @@
 <div>
   <h2>Canciones</h2>
 
+  <app-song-form (songCreated)="loadSongs()"/>
+
   @if (loading()) {
     <p>Cargando...</p>
   }

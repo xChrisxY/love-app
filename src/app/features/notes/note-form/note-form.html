@@ -1,0 +1,20 @@
+<form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+  <h3>Nueva canción</h3>
+
+  <div>
+    <label>Contenido de la carta</label>
+    <input type="text" formControlName="content" />
+    @if (noteForm.get('content')?.invalid && noteForm.get('content')?.touched) {
+      <small>Mínimo 10 caracteres</small>
+    }
+  </div>
+
+  @if (error()) {
+    <p>{{ error() }}</p>
+  }
+
+  <button type="submit" [disabled]="noteForm.invalid || loading()">
+    {{ loading() ? 'Guardando...' : 'Guardar memoria' }}
+  </button>
+
+</form>

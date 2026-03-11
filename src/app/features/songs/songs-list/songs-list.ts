@@ -1,9 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { Song, SongService } from '../../../core/services/song';
+import { SongFormComponent } from "../song-form/song-form";
 
 @Component({
   selector: 'app-songs-list',
-  imports: [],
+  imports: [SongFormComponent],
   templateUrl: './songs-list.html',
   styleUrl: './songs-list.css',
 })

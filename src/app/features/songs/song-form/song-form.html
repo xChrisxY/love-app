@@ -1,0 +1,29 @@
+<form [formGroup]="songForm" (ngSubmit)="onSubmit()">
+  <h3>Nueva canción</h3>
+
+  <div>
+    <label>URL</label>
+    <input type="text" formControlName="url" />
+    @if (songForm.get('url')?.invalid && songForm.get('url')?.touched) {
+      <small>Mínimo 10 caracteres</small>
+    }
+  </div>
+
+  <div>
+    <label>Mensaje</label>
+    <textarea formControlName="message"></textarea>
+    @if (songForm.get('message')?.invalid && songForm.get('message')?.touched) {
+      <small>Mínimo 5 caracteres</small>
+    }
+  </div>
+
+
+  @if (error()) {
+    <p>{{ error() }}</p>
+  }
+
+  <button type="submit" [disabled]="songForm.invalid || loading()">
+    {{ loading() ? 'Guardando...' : 'Guardar memoria' }}
+  </button>
+
+</form>

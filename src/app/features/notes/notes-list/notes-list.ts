@@ -1,11 +1,12 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ViewEncapsulation } from '@angular/core';
 import { Note, NoteService } from '../../../core/services/note';
+import { NoteFormComponent } from "../note-form/note-form";
 
 @Component({
   selector: 'app-notes-list',
-  imports: [],
+  imports: [NoteFormComponent],
   templateUrl: './notes-list.html',
-  styleUrl: './notes-list.css',
+  styleUrl: './notes-list.css'
 })
 export class NotesList {
 
