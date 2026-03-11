@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MemoriesListCo} from './memories-list';
+import { MemoryForm } from './memory-form';
 
-describe('MemoriesList', () => {
-  let component: MemoriesList;
-  let fixture: ComponentFixture<MemoriesList>;
+describe('MemoryForm', () => {
+  let component: MemoryForm;
+  let fixture: ComponentFixture<MemoryForm>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MemoriesList],
+      imports: [MemoryForm],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MemoriesList);
+    fixture = TestBed.createComponent(MemoryForm);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

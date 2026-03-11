@@ -1,6 +1,8 @@
 <div>
   <h2>Memories</h2>
 
+  <app-memory-form (memoryCreated)="loadMemories()"/>
+
   @if (loading()) {
     <p>Cargando...</p>
   }
@@ -16,7 +18,7 @@
   @for (memory of memories(); track memory.id) {
     <div>
       <p>{{ memory.title }}</p>
-      <a [href]="memory.image_url"></a>
+      <img [src]="memory.imageUrl" [alt]="memory.title" width="1000px"/>
       <p>{{ memory.description }}</p>
       <small>{{ memory.created_at }}</small>
     </div>

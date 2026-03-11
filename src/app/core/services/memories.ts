@@ -6,7 +6,7 @@ import { ApiResponse } from './note';
 
 export interface Memories{
   id: string;
-  image_url: string;
+  imageUrl: string;
   title: string;
   description: string;
   created_at: string;
@@ -20,11 +20,19 @@ export class MemoriesService {
 
   private http = inject(HttpClient);
   private apiUrl = `${environment.apiUrl}/api/memories`;
-  
 
   getAll(): Observable<ApiResponse<Memories[]>> {
-    console.log(this.apiUrl);
     return this.http.get<ApiResponse<Memories[]>>(this.apiUrl);
+  }
+
+  create(title: string, description: string, image: File): Observable<ApiResponse<Memories>> {
+
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('image', image);
+
+    return this.http.post<ApiResponse<Memories>>(this.apiUrl, formData);
   }
 
 }

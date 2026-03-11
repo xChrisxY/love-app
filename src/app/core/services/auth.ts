@@ -28,7 +28,6 @@ export class AuthService {
   }
 
   login(credencials: LoginCredentials){
-    console.log(credencials);
     return this.http.post<LoginResponse>(this.apiUrl, credencials).pipe(
       tap(
         response => {

@@ -1,9 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { Memories, MemoriesService } from '../../../core/services/memories';
+import { MemoryFormComponent } from "../memory-form/memory-form";
 
 @Component({
   selector: 'app-memories-list',
-  imports: [],
+  imports: [MemoryFormComponent],
   templateUrl: './memories-list.html',
   styleUrl: './memories-list.css',
 })
