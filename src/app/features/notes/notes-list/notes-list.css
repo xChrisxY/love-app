@@ -1,4 +1,65 @@
-h2 p{
-      text-align: center;
-      background-color: black;
+.notes-container {
+  margin-top: 20px;
+}
+
+/* Título */
+.section-title {
+  text-align: center;
+  color: #ff4d6d;
+  margin-bottom: 20px;
+}
+
+/* Grid de notas */
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Tarjeta tipo carta */
+.note-card {
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border: 1px solid #ffd6e0;
+  transition: all 0.25s ease;
+}
+
+/* Animación suave */
+.note-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+/* Texto de la nota */
+.note-content {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Fecha */
+.note-date {
+  color: #999;
+  font-size: 12px;
+}
+
+/* Estados */
+.status {
+  text-align: center;
+  color: #888;
+}
+
+.error {
+  text-align: center;
+  color: #e63946;
+}
+
+.empty {
+  text-align: center;
+  color: #999;
+  margin-top: 20px;
 }

@@ -1,24 +1,26 @@
-<div>
-  <h2>Notas</h2>
+<div class="notes-container">
+  <h2 class="section-title">💌 Notas</h2>
 
-  <app-note-form (noteCreated)="loadNotes()"/>
+  <app-note-form (noteCreated)="loadNotes()"></app-note-form>
 
   @if (loading()) {
-    <p>Cargando...</p>
+    <p class="status">Cargando...</p>
   }
 
   @if (error()) {
-    <p>{{ error() }}</p>
+    <p class="error">{{ error() }}</p>
   }
 
   @if (!loading() && notes().length === 0) {
-    <p>No hay notas aún.</p>
+    <p class="empty">Aún no hay notas 💕</p>
   }
 
-  @for (note of notes(); track note.id) {
-    <div>
-      <p>{{ note.content }}</p>
-      <small>{{ note.created_at }}</small>
-    </div>
-  }
+  <div class="notes-grid">
+    @for (note of notes(); track note.id) {
+      <div class="note-card">
+        <p class="note-content">{{ note.content }}</p>
+        <small class="note-date">{{ note.created_at }}</small>
+      </div>
+    }
+  </div>
 </div>

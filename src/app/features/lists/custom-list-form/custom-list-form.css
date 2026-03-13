@@ -3,7 +3,7 @@ form{
   padding:25px;
   border-radius:16px;
   box-shadow:0 6px 18px rgba(0,0,0,0.08);
-  max-width:500px;
+  max-width:450px;
   margin-bottom:30px;
 }
 
@@ -20,7 +20,7 @@ label{
 }
 
 input,
-textarea{
+select{
   width:100%;
   padding:10px;
   border-radius:10px;
@@ -30,17 +30,13 @@ textarea{
 }
 
 input:focus,
-textarea:focus{
+select:focus{
   outline:none;
   border-color:#e63973;
 }
 
-textarea{
-  min-height:80px;
-}
-
-input[type="file"]{
-  border:none;
+select{
+  background:white;
 }
 
 button{

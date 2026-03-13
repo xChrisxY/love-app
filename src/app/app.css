@@ -1,0 +1,53 @@
+/* Fondo general */
+body {
+  margin: 0;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #fff1f4, #ffe4ec);
+  min-height: 100vh;
+}
+
+/* HEADER */
+.romantic-header {
+  background: linear-gradient(135deg, #ff6b8a, #ff8fab);
+  padding: 18px 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* LINKS */
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.25s ease;
+}
+
+/* Hover romántico */
+.nav a:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Link activo */
+.nav a.active {
+  background: white;
+  color: #ff4d6d;
+}
+
+/* MAIN */
+.main-content {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px 20px;
+}

@@ -1,0 +1,33 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h3>Nueva canción</h3>
+
+  <div>
+    <label>Nombre de la lista</label>
+    <input type="text" formControlName="title" />
+    @if (form.get('title')?.invalid && form.get('title')?.touched) {
+      <small>Mínimo 5 caracteres</small>
+    }
+  </div>
+
+  <label for="typeOptions">Selecciona el tipo de la lista:</label>
+  
+  <select id="typeOptions" formControlName="type">
+    <option value="" disabled>Seleccione...</option>
+
+      @for (o of typeOptions; track o.id) {
+    <option [value]="o.name">
+      {{ o.name }}
+    </option>
+  }
+  </select>
+  
+
+  @if (error()) {
+    <p>{{ error() }}</p>
+  }
+
+  <button type="submit" [disabled]="form.invalid || loading()">
+    {{ loading() ? 'Guardando...' : 'Guardar lista' }}
+  </button>
+
+</form>

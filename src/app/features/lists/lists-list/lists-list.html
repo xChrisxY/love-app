@@ -1,1 +1,30 @@
-<p>lists-list works!</p>
+<h2 class="lists-title">Planes juntos 💖</h2>
+
+<app-custom-list-form (listCreated)="loadLists()"/>
+
+@if (loading()) {
+  <p class="loading">Cargando listas...</p>
+}
+
+@if (error()) {
+  <p class="error">{{ error() }}</p>
+}
+
+@if (!loading() && lists().length === 0) {
+  <p class="empty">Aún no han creado planes juntos ✨</p>
+}
+
+<div class="lists-grid">
+  @for (list of lists(); track list.id) {
+    <div class="list-card">
+
+      <div class="list-header">
+        <h3>{{ list.title }}</h3>
+        <span class="list-type">{{ list.type }}</span>
+      </div>
+
+      <small class="list-date">{{ list.createdAt }}</small>
+
+    </div>
+  }
+</div>

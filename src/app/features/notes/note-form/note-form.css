@@ -1,3 +1,63 @@
 form {
-      background-color: black;
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  margin: 25px auto;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border: 1px solid #ffd6e0;
+}
+
+form h3 {
+  text-align: center;
+  color: #ff4d6d;
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #555;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ffc2d1;
+  outline: none;
+  transition: border 0.2s;
+}
+
+form input:focus {
+  border-color: #ff4d6d;
+}
+
+form small {
+  color: #e63946;
+}
+
+/* Botón romántico */
+form button {
+  margin-top: 12px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255,77,109,0.4);
+}
+
+form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

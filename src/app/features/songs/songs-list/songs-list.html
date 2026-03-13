@@ -16,10 +16,12 @@
   }
 
   @for (song of songs(); track song.id) {
-    <div>
-      <p>{{ song.message }}</p>
-      <a [href]="song.url">Enlace</a>
-      <small>{{ song.created_at }}</small>
+    <div class="song-card">
+      <p class="song-message">🎵 {{ song.message }}</p>
+      <a class="song-link" [href]="song.url" target="_blank">
+        Escuchar canción
+      </a>
+      <small class="song-date">{{ song.created_at }}</small>
     </div>
   }
 </div>

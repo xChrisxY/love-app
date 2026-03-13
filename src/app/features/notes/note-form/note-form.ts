@@ -5,6 +5,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-note-form',
+  standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './note-form.html',
   styleUrl: './note-form.css',

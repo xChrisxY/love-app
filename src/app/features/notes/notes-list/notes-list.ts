@@ -4,6 +4,7 @@ import { NoteFormComponent } from "../note-form/note-form";
 
 @Component({
   selector: 'app-notes-list',
+  standalone: true,
   imports: [NoteFormComponent],
   templateUrl: './notes-list.html',
   styleUrl: './notes-list.css'

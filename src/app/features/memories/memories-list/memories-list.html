@@ -1,26 +1,33 @@
-<div>
-  <h2>Memories</h2>
+<h2 class="memories-title">Nuestros recuerdos</h2>
 
-  <app-memory-form (memoryCreated)="loadMemories()"/>
+<app-memory-form (memoryCreated)="loadMemories()"/>
 
-  @if (loading()) {
-    <p>Cargando...</p>
-  }
+@if (loading()) {
+  <p class="loading">Cargando recuerdos...</p>
+}
 
-  @if (error()) {
-    <p>{{ error() }}</p>
-  }
+@if (error()) {
+  <p class="error">{{ error() }}</p>
+}
 
-  @if (!loading() && memories().length === 0) {
-    <p>No hay notas aún.</p>
-  }
+@if (!loading() && memories().length === 0) {
+  <p class="empty">Aún no hay recuerdos guardados 💕</p>
+}
 
+<div class="memories-grid">
   @for (memory of memories(); track memory.id) {
-    <div>
-      <p>{{ memory.title }}</p>
-      <img [src]="memory.imageUrl" [alt]="memory.title" width="1000px"/>
-      <p>{{ memory.description }}</p>
-      <small>{{ memory.created_at }}</small>
+    <div class="memory-card">
+
+      <div class="memory-image">
+        <img [src]="memory.imageUrl" [alt]="memory.title"/>
+      </div>
+
+      <div class="memory-content">
+        <h3>{{ memory.title }}</h3>
+        <p>{{ memory.description }}</p>
+        <small>{{ memory.created_at }}</small>
+      </div>
+
     </div>
   }
 </div>

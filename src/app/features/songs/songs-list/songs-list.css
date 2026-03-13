@@ -1,0 +1,41 @@
+h2 {
+  margin-bottom: 20px;
+  color: #e63973;
+}
+
+.song-card {
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  border-left: 6px solid #ff7aa2;
+  transition: transform 0.15s ease;
+}
+
+.song-card:hover {
+  transform: translateY(-2px);
+}
+
+.song-message {
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.song-link {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: #e63973;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.song-link:hover {
+  text-decoration: underline;
+}
+
+.song-date {
+  font-size: 12px;
+  color: #888;
+}
