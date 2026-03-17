@@ -1,29 +1,45 @@
-<div>
-  <h2>Iniciar sesión</h2>
+<div class="login-container">
 
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="hearts">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-    <div>
-      <label>Usuario</label>
-      <input type="text" formControlName="username" />
-      @if (loginForm.get('username')?.invalid && loginForm.get('username')?.touched) {
-        <small>Mínimo 5 caracteres</small>
+  <div class="login-card">
+
+    <h2>💖 Iniciar sesión</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label>Usuario</label>
+        <input type="text" formControlName="username" />
+
+        @if (loginForm.get('username')?.invalid && loginForm.get('username')?.touched) {
+          <small>Mínimo 5 caracteres</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" formControlName="password" />
+
+        @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+          <small>Mínimo 5 caracteres</small>
+        }
+      </div>
+
+      @if (error()) {
+        <p class="error">{{ error() }}</p>
       }
-    </div>
 
-    <div>
-      <label>Contraseña</label>
-      <input type="password" formControlName="password" />
-      @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
-        <small>Mínimo 5 caracteres</small>
-      }
-    </div>
+      <button type="submit" [disabled]="loginForm.invalid">
+        Entrar
+      </button>
 
-    @if (error()) {
-      <p>{{ error() }}</p>
-    }
+    </form>
 
-    <button type="submit" [disabled]="loginForm.invalid">Entrar</button>
+  </div>
 
-  </form>
 </div>

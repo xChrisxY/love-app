@@ -22,7 +22,8 @@ body {
 }
 
 /* LINKS */
-.nav a {
+.nav a,
+.nav button {
   text-decoration: none;
   color: white;
   font-weight: 600;
@@ -30,10 +31,16 @@ body {
   padding: 8px 16px;
   border-radius: 20px;
   transition: all 0.25s ease;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 /* Hover romántico */
-.nav a:hover {
+.nav a:hover,
+.nav button:hover {
   background: rgba(255,255,255,0.25);
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
@@ -51,3 +58,4 @@ body {
   margin: auto;
   padding: 30px 20px;
 }
+

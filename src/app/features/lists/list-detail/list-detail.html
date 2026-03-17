@@ -1,0 +1,49 @@
+<div class="list-detail">
+
+  <button class="back-button" (click)="goBack()">← Volver</button>
+
+  <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" class="item-form">
+
+    <input
+      type="text"
+      formControlName="content"
+      placeholder="Nuevo plan juntos..."
+    />
+
+    @if (itemForm.get('content')?.invalid && itemForm.get('content')?.touched) {
+      <small>Mínimo 2 caracteres</small>
+    }
+
+    <button type="submit" [disabled]="itemForm.invalid || submitting()">
+      {{ submitting() ? 'Agregando...' : 'Agregar' }}
+    </button>
+
+  </form>
+
+  @if (loading()) {
+    <p class="loading">Cargando items...</p>
+  }
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  @if (!loading() && items().length === 0) {
+    <p class="empty">Esta lista está vacía, agrega el primero 🎉</p>
+  }
+
+  <ul class="items-list">
+    @for (item of items(); track item.id) {
+      <li class="item" [class.done]="item.status === 'DONE'">
+
+        <span class="item-text">{{ item.content }}</span>
+
+        <small class="item-status">
+          {{ item.status === 'DONE' ? '✓ Hecho' : 'Pendiente' }}
+        </small>
+
+      </li>
+    }
+  </ul>
+
+</div>

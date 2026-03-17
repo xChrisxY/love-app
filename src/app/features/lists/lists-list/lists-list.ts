@@ -1,10 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { CustomList, ListsService } from '../../../core/services/lists';
 import { CustomListForm } from "../custom-list-form/custom-list-form";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-lists-list',
-  imports: [CustomListForm],
+  imports: [CustomListForm, RouterLink],
   templateUrl: './lists-list.html',
   styleUrl: './lists-list.css',
 })

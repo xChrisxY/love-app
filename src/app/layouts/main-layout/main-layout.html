@@ -1,0 +1,13 @@
+<header class="romantic-header">
+  <nav class="nav">
+    <a routerLink="/notes">Notes</a>
+    <a routerLink="/songs">Songs</a>
+    <a routerLink="/memories">Memories</a>
+    <a routerLink="/lists">Lists</a>
+    <button (click)="logout()">Cerrar sesión</button>
+  </nav>
+</header>
+
+<main class="main-content">
+      <router-outlet></router-outlet>
+</main>

@@ -16,7 +16,7 @@
 
 <div class="lists-grid">
   @for (list of lists(); track list.id) {
-    <div class="list-card">
+    <div class="list-card" [routerLink]="['/lists', list.id]" style="cursor:pointer">
 
       <div class="list-header">
         <h3>{{ list.title }}</h3>

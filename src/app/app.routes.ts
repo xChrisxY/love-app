@@ -6,13 +6,32 @@ import { ListsListComponent } from './features/lists/lists-list/lists-list';
 import { Home } from './shared/components/home/home';
 import { LoginComponent } from './features/auth/login/login';
 import { authGuard } from './core/guards/auth-guard';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout';
+import { ListDetailComponent } from './features/lists/list-detail/list-detail';
 
 export const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: '', component: Home, canActivate: [authGuard]},
-  {path: 'notes', component: NotesList, canActivate: [authGuard]},
-  {path: 'songs', component: SongsListComponent, canActivate: [authGuard]},
-  {path: 'memories', component: MemoriesListComponent, canActivate: [authGuard]},
-  {path: 'lists', component: ListsListComponent, canActivate: [authGuard]},
-  {path: '**', redirectTo: ''},
+
+  {
+    path: '',
+    component: AuthLayoutComponent,
+    children: [
+      { path: 'login', component: LoginComponent }
+    ]
+  },
+
+  {
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      { path: 'notes', component: NotesList },
+      { path: 'songs', component: SongsListComponent },
+      { path: 'memories', component: MemoriesListComponent },
+      { path: 'lists', component: ListsListComponent },
+      { path: 'lists/:id', component: ListDetailComponent }
+    ]
+  },
+
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
+
 ];
