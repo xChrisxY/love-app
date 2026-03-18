@@ -1,12 +1,11 @@
-*{
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* Fondo general */
 body {
-  margin: 0;
   font-family: "Poppins", "Segoe UI", sans-serif;
   background: linear-gradient(135deg, #fff1f4, #ffe4ec);
   min-height: 100vh;
@@ -15,16 +14,17 @@ body {
 /* HEADER */
 .romantic-header {
   background: linear-gradient(135deg, #ff6b8a, #ff8fab);
-  padding: 18px 30px;
+  padding: 12px 16px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 /* NAV */
 .nav {
   display: flex;
-  gap: 25px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap; /* 🔥 clave para móvil */
 }
 
 /* LINKS */
@@ -33,8 +33,8 @@ body {
   text-decoration: none;
   color: white;
   font-weight: 600;
-  font-size: 16px;
-  padding: 8px 16px;
+  font-size: 14px;
+  padding: 6px 12px;
   border-radius: 20px;
   transition: all 0.25s ease;
 
@@ -42,6 +42,7 @@ body {
   border: none;
   cursor: pointer;
   font-family: inherit;
+  white-space: nowrap;
 }
 
 /* Hover romántico */
@@ -62,5 +63,41 @@ body {
 .main-content {
   max-width: 900px;
   margin: auto;
-  padding: 30px 20px;
+  padding: 20px 16px;
+}
+
+
+@media (max-width: 600px) {
+
+  /* HEADER más compacto */
+  .romantic-header {
+    padding: 10px;
+  }
+
+  /* NAV tipo grid bonito */
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  /* Botones más grandes para dedo 👆 */
+  .nav a,
+  .nav button {
+    font-size: 13px;
+    padding: 10px;
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* Activo más visible */
+  .nav a.active {
+    background: white;
+    color: #ff4d6d;
+  }
+
+  /* MAIN más compacto */
+  .main-content {
+    padding: 15px 12px;
+  }
 }
