@@ -9,6 +9,7 @@ import { authGuard } from './core/guards/auth-guard';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout';
 import { ListDetailComponent } from './features/lists/list-detail/list-detail';
+import { RegisterComponent } from './features/auth/register/register';
 
 export const routes: Routes = [
 
@@ -16,12 +17,13 @@ export const routes: Routes = [
     path: '',
     component: AuthLayoutComponent,
     children: [
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent},
     ]
   },
 
   {
-    path: '',
+    path: 'app',
     component: MainLayoutComponent,
     children: [
       { path: 'notes', component: NotesList },
@@ -32,6 +34,7 @@ export const routes: Routes = [
     ]
   },
 
-  { path: '**', redirectTo: 'login', pathMatch: 'full' }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login' }
 
 ];

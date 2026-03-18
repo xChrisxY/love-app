@@ -8,15 +8,15 @@
 
   <div class="login-card">
 
-    <h2>💖 Iniciar sesión</h2>
+    <h2>💖 Registrate en la app</h2>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
       <div class="form-group">
         <label>Usuario</label>
         <input type="text" formControlName="username" />
 
-        @if (loginForm.get('username')?.invalid && loginForm.get('username')?.touched) {
+        @if (registerForm.get('username')?.invalid && registerForm.get('username')?.touched) {
           <small>Mínimo 5 caracteres</small>
         }
       </div>
@@ -25,7 +25,16 @@
         <label>Contraseña</label>
         <input type="password" formControlName="password" />
 
-        @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+        @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+          <small>Mínimo 5 caracteres</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Correo eletronico</label>
+        <input type="email" formControlName="email" />
+
+        @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
           <small>Mínimo 5 caracteres</small>
         }
       </div>
@@ -34,16 +43,11 @@
         <p class="error">{{ error() }}</p>
       }
 
-      <button type="submit" [disabled]="loginForm.invalid">
+      <button type="submit" [disabled]="registerForm.invalid">
         Entrar
       </button>
 
     </form>
-
-    <div class="register-button">
-      <small>¿Aún no tienes una cuenta?</small>
-      <button (click)="redirect()">Registrarse</button>
-    </div>
 
   </div>
 

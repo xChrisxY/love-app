@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { tap } from 'rxjs';
+import { ApiResponse } from './note';
+import { environment } from '../../../environments/environment.development';
+import { response } from 'express';
 
 interface LoginResponse {
   message: string;
@@ -12,13 +15,25 @@ interface LoginCredentials {
   password: string;
 }
 
+interface RegisterCredentials {
+  username: string;
+  password: string;
+  email: string;
+}
+
+interface User {
+  id: string;
+  username: string;
+  email: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
 
   private http = inject(HttpClient);
-  private apiUrl = 'http://192.168.1.71:8080/api/auth/login';
+  private apiUrl = `${environment.apiUrl}/api`;
 
   isLoggedIn = signal(false);
 
@@ -28,7 +43,7 @@ export class AuthService {
   }
 
   login(credencials: LoginCredentials){
-    return this.http.post<LoginResponse>(this.apiUrl, credencials).pipe(
+    return this.http.post<LoginResponse>(`${this.apiUrl}/auth/login`, credencials).pipe(
       tap(
         response => {
         console.log(response);
@@ -36,7 +51,10 @@ export class AuthService {
         this.isLoggedIn.set(true);
       })
     )
+  }
 
+  register(credencials: RegisterCredentials){
+    return this.http.post<ApiResponse<User>>(`${this.apiUrl}/users/register`, credencials);
   }
 
   logout(){

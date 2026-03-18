@@ -1,4 +1,4 @@
 export const environment = {
       production: false,
-      apiUrl: 'http://192.168.1.71:8080'
+      apiUrl: 'https://spring-boot-memories.onrender.com'
 };

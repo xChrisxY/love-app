@@ -22,12 +22,16 @@ export class LoginComponent {
     password: ['', [Validators.required, Validators.minLength(5)]]
   })
 
+  redirect() {
+    this.router.navigate(['/register']);
+  }
+
   onSubmit(){
     if (this.loginForm.invalid) return;
 
     this.authService.login(this.loginForm.value as any).subscribe({
 
-      next: () => this.router.navigate(['/notes']),
+      next: () => this.router.navigate(['/app/notes']),
       error: () => this.error.set('Usuario o contraseña incorrectos')
 
     })
